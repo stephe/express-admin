@@ -16,3 +16,7 @@ node_modules
 public/upload
 coverage
 .idea
+
+config/config.json
+config/users.json
+
