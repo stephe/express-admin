@@ -1,6 +1,8 @@
 
 require('colors');
 
+var env = process.env.NODE_ENV || 'local';
+
 var fs = require('fs'),
     path = require('path');
 var cli = require('./lib/app/cli'),
@@ -299,7 +301,7 @@ if (require.main === module) {
     initCommandLine(args, function (err) {
         if (err) return console.log(err.message.red);
 
-        args.config = require(path.join(args.dpath, 'config.json'));
+        args.config = require(path.join(args.dpath, 'config.json'))[env];
         args.settings = require(path.join(args.dpath, 'settings.json'));
         args.custom = require(path.join(args.dpath, 'custom.json'));
         args.users = require(path.join(args.dpath, 'users.json'));
